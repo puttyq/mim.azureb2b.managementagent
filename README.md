@@ -13,20 +13,22 @@ Due to these reasons the choice was made to persue a complete PowerShell-based i
 
 ## Azure Active Directory Attribute Supported
 
-The following attribute can be imported using the management agent. Any attribute in **bold** is also exportable.
+The following attribute can be imported using the management agent. 
+* Any attribute in **bold** is also exportable.
+* Attributes is *italics* are just imported informationally (not exportable)
 
 | Attributes         | Attributes                  | Attributes          | Attributes         |
 |--------------------------|------------------------------|-------------------|--------------------------|
 | **AccountEnabled**           | **GivenName**                    | **ProxyAddresses**    | **Manager**                  |
-| **AgeGroup**                 | ImmutableId                  | **ShowInAddressList** | ManagerDisplayName       |
-| **City**                     | **JobTitle**                     | **State**             | ManagerUserPrincipleName |
-| CompanyName              | **LegalAgeGroupClassification**  | **StreetAddress**     | ThumbnailLocation        |
+| **AgeGroup**                 | *ImmutableId*                  | **ShowInAddressList** | *ManagerDisplayName*       |
+| **City**                     | **JobTitle**                     | **State**             | *ManagerUserPrincipleName* |
+| *CompanyName*              | *LegalAgeGroupClassification*  | **StreetAddress**     | ThumbnailLocation        |
 | **ConsentProvidedForMinor**  | **Mail**                         | **Surname**           |                          |
 | **Country**                  | **Mobile**                       | **TelephoneNumber**   |                          |
-| CreationType             | OnPremisesSecurityIdentifier | UsageLocation     |                          |
+| *CreationType*             | *OnPremisesSecurityIdentifier* | **UsageLocation**     |                          |
 | **Department**               | **OtherMails**                   | **UserPrincipalName** |                          |
-| **DisplayName**              | **PhysicalDeliveryOfficeName**   | UserType          |                          |
-| **FacsimileTelephoneNumber** | **PostalCode**                   | distinguishedName |                          |
+| **DisplayName**              | **PhysicalDeliveryOfficeName**   | *UserType*          |                          |
+| **FacsimileTelephoneNumber** | **PostalCode**                   | *distinguishedName* |                          |
 
 
 # Known Issues
