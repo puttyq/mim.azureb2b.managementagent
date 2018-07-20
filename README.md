@@ -1,4 +1,4 @@
-# mim.azureb2b.managementagent
+# Microsoft AzureAD B2B Guest Synchronization Management Agent for MIM
 A Granfeldt PowerShell management agent for FIM/MIM
 
 The following project provides a complete implementation of the [Granfeldt PSMA](https://github.com/sorengranfeldt/psma) in order to facilitate Microsoft Azure Active Directory (AzureAD) intergraton, perticularly for the purpose of enabling Microsoft Azure B2B (Azure B2B) synchronization between tenants. The management agent was born out of the need to establish Azure B2B guest provisioning to multiple forests which also included the usage of Azure B2B guest accounts within the Microsoft Exchange Online GAL (Global Address List).
