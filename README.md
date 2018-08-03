@@ -1,15 +1,14 @@
 # Microsoft AzureAD B2B Guest Synchronization Management Agent for MIM
 A Granfeldt PowerShell management agent for FIM/MIM
 
-The following project provides a complete implementation of the [Granfeldt PSMA](https://github.com/sorengranfeldt/psma) in order to facilitate Microsoft Azure Active Directory (AzureAD) intergraton, perticularly for the purpose of enabling Microsoft Azure B2B (Azure B2B) synchronization between tenants. The management agent was born out of the need to establish Azure B2B guest provisioning to multiple forests which also included the usage of Azure B2B guest accounts within the Microsoft Exchange Online GAL (Global Address List).
+This project provides a complete MIM implementation of the [Granfeldt PSMA](https://github.com/sorengranfeldt/psma) to facilitate Microsoft Azure Active Directory (AzureAD) intergraton, perticularly for the purpose of enabling Microsoft Azure B2B (Azure B2B) synchronization between tenants taht requires the users to show up in the Exchange GAL. The management agent was born out of the need to establish Azure B2B guest provisioning to multiple forests which also included the usage of Azure B2B guest accounts within the Microsoft Exchange Online GAL (Global Address List).
 
-Options to accomplish this includes using the Microsoft Azure Graph API Management Agent (preview at the time of writing this document), but this had some pronounced limitations. Examples included:
+Options to accomplish this includes using the Microsoft Azure Graph API Management Agent (preview at the time of writing this document), but this had some limitations. Examples included:
 * limited support for the complete AzureADUser attribute set (e.g. proxyAddresses)
-* restrictions on the ability to write to certain attributes
+* restrictions on the ability to write to certain attributes (e.g. proxyAddresses)
 * flexibility in creating a solution using one management agent (since other options needed to be added to create a complete solution)
 
 Due to these reasons the choice was made to persue a complete PowerShell-based implementation using the Granfeldt [Granfeldt PSMA](https://github.com/sorengranfeldt/psma) due to great flexibility and a stable interface with MIM.
-
 
 ## Azure Active Directory Attribute Supported
 
@@ -41,7 +40,8 @@ At present there are certain limitations of the management agent. These includes
 
 # Known Limitations
 
-One of the key challanges with creating the MIM configuration to support the management agent is the static nature of management agent configuration. At present new management agents and specific parameters needs to be manually added (which includes key management agent configuration settings and metaverse extension development) each time a new sync partner is added. Some of this will remain since the objective is never to make it completely dynamic, but there is however a desire to remove some of the manual settings since these could create confusion during deployment and operational support.
+* **Delta Imports:** The Azure.B2B.PSMA users the AzureAD PowerShell Module and the Exchange PowerShell provider to read and write to Azure AD B2B guest users. As a result the MA does not support delta import operations since there is not a way to only filter changes in the PowerShell module. Even thought there is no delta import support, full imports does not take very long (production tenant with 17k users takes about 4 minutes). If however you enable additional metadata imports (via the import filters in the XML file) such as Manager the import requires a second PowerShell execution for every object (to get the Get-AzureADUserManager result). In this case the import time increases from 4 minutes to around 40 minutes.
+* **Manual Config:** One of the key challanges with creating the MIM configuration to support the management agent is the static nature of management agent configuration. At present new management agents and specific parameters needs to be manually added (which includes key management agent configuration settings and metaverse extension development) each time a new sync partner is added. Some of this will remain since the objective is never to make it completely dynamic, but there is however a desire to remove some of the manual settings since these could create confusion during deployment and operational support.
 
 
 # Contributing
