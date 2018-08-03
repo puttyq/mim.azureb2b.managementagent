@@ -13,21 +13,44 @@ Due to these reasons the choice was made to persue a complete PowerShell-based i
 ## Azure Active Directory Attribute Supported
 
 The following attribute can be imported using the management agent. 
-* Any attribute in **bold** is also exportable.
-* Attributes is *italics* are just imported informationally (not exportable)
 
-| Attributes         | Attributes                  | Attributes          | Attributes         |
-|--------------------------|------------------------------|-------------------|--------------------------|
-| **AccountEnabled**           | **GivenName**                    | **ProxyAddresses**    | **Manager**                  |
-| **AgeGroup**                 | *ImmutableId*                  | **ShowInAddressList** | *ManagerDisplayName*       |
-| **City**                     | **JobTitle**                     | **State**             | *ManagerUserPrincipleName* |
-| *CompanyName*              | *LegalAgeGroupClassification*  | **StreetAddress**     | ThumbnailLocation        |
-| **ConsentProvidedForMinor**  | **Mail**                         | **Surname**           |                          |
-| **Country**                  | **Mobile**                       | **TelephoneNumber**   |                          |
-| *CreationType*             | *OnPremisesSecurityIdentifier* | **UsageLocation**     |                          |
-| **Department**               | **OtherMails**                   | **UserPrincipalName** |                          |
-| **DisplayName**              | **PhysicalDeliveryOfficeName**   | *UserType*          |                          |
-| **FacsimileTelephoneNumber** | **PostalCode**                   | *distinguishedName* |                          |
+| Attribute                    | DataType | Import                   | Export                 |
+|------------------------------|----------|--------------------------|------------------------|
+| AccountEnabled               | Boolean  | Get-AzureADUser          | Set-AzureADUser        |
+| AgeGroup                     | String   | Get-AzureADUser          | Set-AzureADUser        |
+| City                         | String   | Get-AzureADUser          | Set-AzureADUser        |
+| CompanyName                  | String   | Get-AzureADUser          |                        |
+| ConsentProvidedForMinor      | String   | Get-AzureADUser          | Set-AzureADUser        |
+| Country                      | String   | Get-AzureADUser          | Set-AzureADUser        |
+| CreationType                 | String   | Get-AzureADUser          |                        |
+| Department                   | String   | Get-AzureADUser          | Set-AzureADUser        |
+| DisplayName                  | String   | Get-AzureADUser          | Set-AzureADUser        |
+| FacsimileTelephoneNumber     | String   | Get-AzureADUser          | Set-AzureADUser        |
+| GivenName                    | String   | Get-AzureADUser          | Set-AzureADUser        |
+| ImmutableId                  | String   | Get-AzureADUser          |                        |
+| JobTitle                     | String   | Get-AzureADUser          | Set-AzureADUser        |
+| LegalAgeGroupClassification  | String   | Get-AzureADUser          | Set-AzureADUser        |
+| Mail                         | String   | Get-AzureADUser          |                        |
+| Mobile                       | String   | Get-AzureADUser          | Set-AzureADUser        |
+| OnPremisesSecurityIdentifier | String   | Get-AzureADUser          |                        |
+| OtherMails                   | String() | Get-AzureADUser          |                        |
+| PhysicalDeliveryOfficeName   | String   | Get-AzureADUser          | Set-AzureADUser        |
+| PostalCode                   | String   | Get-AzureADUser          | Set-AzureADUser        |
+| ProxyAddresses               | String() | Get-AzureADUser          | Set-MailUser           |
+| ShowInAddressList            | Boolean  | Get-AzureADUser          | Set-AzureADUser        |
+| ShowInAddressListExo         | Boolean  | Get-MailUser             | Set-MailUser           |
+| State                        | String   | Get-AzureADUser          | Set-AzureADUser        |
+| StreetAddress                | String   | Get-AzureADUser          | Set-AzureADUser        |
+| Surname                      | String   | Get-AzureADUser          | Set-AzureADUser        |
+| TelephoneNumber              | String   | Get-AzureADUser          | Set-AzureADUser        |
+| UsageLocation                | String   | Get-AzureADUser          | Set-AzureADUser        |
+| UserPrincipalName            | String   | Get-AzureADUser          | Set-AzureADUser        |
+| UserType                     | String   | Get-AzureADUser          |                        |
+| distinguishedName            | String   | Get-AzureADUser          |                        |
+| Manager                      | String   | Get-AzureADUserManager   | Set-AzureADUserManager |
+| ManagerDisplayName           | String   | Get-AzureADUserManager   |                        |
+| ManagerUserPrincipleName     | String   | Get-AzureADUserManager   |                        |
+| ThumbnailLocation            | String   | Get-AzureADUserThumbnail |                        |
 
 
 # Known Issues
