@@ -53,6 +53,27 @@ The following attribute can be imported using the management agent.
 | ThumbnailLocation            | String   | Get-AzureADUserThumbnail |                        |
 
 
+# Understanding the Settings.xml configurations
+As part fo the PSMA, a settings.xml file is provided to control the behaviour of the import and export operations. The following table provides a breakdown of each setting.
+
+| Configuration Name                      	| Configuration Description                                                                   	|
+|-----------------------------------------	|---------------------------------------------------------------------------------------------	|
+| connection-exchangeOnlineURI            	| Providers a value to store the Exchange Online PowerShell URI                               	|
+| logging-loggingEnabled                  	| Enables and disables logging to PowerShell error stream and local file system files         	|
+| logging-loggingVerbose                  	| Enable / disabled debug logging (standard info logging is controlled by loggingEnabled)     	|
+| logging-filePath                        	| Provides a path for log files                                                               	|
+| logging-fileNameImport                  	| Single file target for import run profile logging                                           	|
+| logging-fileNameExport                  	| Single file target for export run profile logging                                           	|
+| logging-fileNamePassword                	| Single file target for password sync transaction logging                                    	|
+| import-userFilterType                   	| Sets which AzureAD UserTypes should be imported - value include "all", "guest", "member"    	|
+| import-userFilterManager                	| Sets if Get-AzureADUserManager should be run on each user (adds significant time to import) 	|
+| import-userFilterRestrictImmutableId    	| Control if empty ImmutableID users should be ignored or not                                 	|
+| import-userFilterHiddenFromAddressLists 	| Control if Get-MailUser should be executed on all guest to confirm Exo GAL visibility       	|
+| import-userFilterPhoto                  	| Control if Get-AzureADUserThumbnail is executed on all imported users *(not working atm)*   	|
+| import-userThumbnailPath                	| Sets a path to store user thumbnails on the local filesystem                                	|
+| export-inviteEmailSending               	| Controls of an AzureAD B2B email invite should be sent to new users                         	|
+| export-inviteRedirectionURL             	| Provides a URL to redirect users to after redemption of AzureAD B2B invite                  	|
+
 # Known Issues
 
 At present there are certain limitations of the management agent. These includes:
