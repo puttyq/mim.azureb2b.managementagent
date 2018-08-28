@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <connection>
+    <exchangeOnlineURI>https://outlook.office365.com/powershell-liveid/</exchangeOnlineURI>
+  </connection>
+  <logging>
+    <loggingEnabled>True</loggingEnabled>
+    <loggingVerbose>True</loggingVerbose>
+    <filePath>C:\AzureB2BSync\psma.scripts\Debug\</filePath>
+    <fileNameImport>import.log</fileNameImport>
+    <fileNameExport>export.log</fileNameExport>
+    <fileNamePassword>password.log</fileNamePassword>
+  </logging>
+  <import>
+    <userFilterType>All</userFilterType>
+    <userFilterManager>False</userFilterManager>
+    <userFilterRestrictImmutableId>False</userFilterRestrictImmutableId>
+    <userFilterPhoto>False</userFilterPhoto>
+    <userExoHideAddressList>True</userExoHideAddressList>
+    <userThumbnailPath>C:\AzureB2BSync\psma.scripts\Debug\thumbnails\</userThumbnailPath>
+    <getTenantLEDN>False</getTenantLEDN>
+  </import>
+  <export>
+    <inviteEmailSending>False</inviteEmailSending>
+    <inviteRedirectionURL>https://myapps.microsoft.com</inviteRedirectionURL>
+  </export>
+</settings>
